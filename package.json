@@ -1,0 +1,31 @@
+{
+  "name": "primus-pingpong",
+  "version": "0.1.0",
+  "description": "Ping-Pong library for monitoring connection status",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt mochaTest"
+  },
+  "author": "James Huston <james@jameshuston.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "should": "~2.1.1",
+    "mocha": "~1.10.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-mocha-test": "~0.5.0",
+    "grunt-notify": "~0.2.4",
+    "async": "~0.2.9",
+    "grunt-env": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "primus": "~2.0.0",
+    "engine.io": "~0.8.2",
+    "engine.io-client": "~0.8.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:james-huston/primus-pingpong.git"
+  }
+}
