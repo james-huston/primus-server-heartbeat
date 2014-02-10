@@ -1,10 +1,11 @@
 {
-  "name": "primus-pingpong",
+  "name": "primus-server-heartbeat",
   "version": "0.1.0",
   "description": "Ping-Pong library for monitoring connection status",
   "main": "index.js",
   "scripts": {
-    "test": "grunt mochaTest"
+    "test": "./node_modules/.bin/mocha -r should -R spec --recursive --slow 500",
+    "start": "./node_modules/.bin/mocha -r should -R spec --recursive --watch --slow 500"
   },
   "author": "James Huston <james@jameshuston.net>",
   "license": "MIT",
@@ -26,6 +27,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:james-huston/primus-pingpong.git"
+    "url": "ssh://git@github.com:james-huston/primus-server-heartbeat.git"
   }
 }
