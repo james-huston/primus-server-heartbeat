@@ -1,5 +1,6 @@
 #primus-server-heartbeat
 
+[![Build Status](https://travis-ci.org/primus/primus.png?branch=master)](https://travis-ci.org/james-huston/primus-server-heartbeat)
 
 primus-server-heartbeat is a [Primus](https://github.com/primus/primus) plugin that acts as a server heartbeat for monitoring connection status. This plugin was created to help in mobile/polling environments to allow the server to have a pre connection timeout heads up that there might be some issues. Something like an iPhone user hitting the lock button while they are viewing your site and the long polling connection stops responding but you don't know till your timeout fires (default is about 60 seconds later).
 
