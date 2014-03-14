@@ -20,9 +20,9 @@
     "async": "~0.2.9",
     "grunt-env": "~0.4.0",
     "grunt-contrib-jshint": "~0.6.0",
-    "primus": "1.4.7",
-    "engine.io": "0.6.2",
-    "engine.io-client": "0.6.2"
+    "primus": "~2.0.4",
+    "engine.io": "~0.8.2",
+    "engine.io-client": "~0.8.2"
   },
   "dependencies": {},
   "repository": {
