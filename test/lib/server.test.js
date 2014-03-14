@@ -25,7 +25,7 @@ describe('The server plugin function', function () {
 
     it('should throw server events on client pings', function (done) {
       server.on('connection', function (spark) {
-        spark.on('shb::ping', function () {
+        spark.on('incoming::shb::ping', function () {
           spark.end();
           done();
         });
@@ -39,7 +39,7 @@ describe('The server plugin function', function () {
 
     it('should throw server events on server pong', function (done) {
       server.on('connection', function (spark) {
-        spark.on('shb::pong', function () {
+        spark.on('outgoing::shb::pong', function () {
           spark.end();
           done();
         });
@@ -52,11 +52,20 @@ describe('The server plugin function', function () {
     });
 
     it('should store the lastPing correctly', function (done) {
+      this.timeout(2000);
       server.on('connection', function (spark) {
         var pingCount = 0;
-        spark.on('shb::ping', function () {
+        spark.on('incoming::shb::ping', function () {
           pingCount++;
         });
+
+        var doneCounter = 0;
+        function isDone() {
+          doneCounter += 1;
+          if (doneCounter === 2) {
+            return done();
+          }
+        }
 
         /*
          * we are dealing with small times and setTimeout is not exactly
@@ -66,13 +75,14 @@ describe('The server plugin function', function () {
          */
         setTimeout(function () {
           (Date.now() - spark.shb.lastPing).should.be.lessThan(40);
-        }, 120);
+          isDone();
+        }, 300);
 
         setTimeout(function () {
           (Date.now() - spark.shb.lastPing).should.be.lessThan(40);
           pingCount.should.be.greaterThan(4);
           pingCount.should.be.lessThan(8);
-          done();
+          isDone();
         }, 300);
       });
 
@@ -114,7 +124,7 @@ describe('The server plugin function', function () {
        * hit our timeout timer.
        */
       server.on('connection', function (spark) {
-        spark.on('shb::mia', function () {
+        spark.on('incoming::shb::mia', function () {
           spark.shb.mia = false;
           done();
         });
